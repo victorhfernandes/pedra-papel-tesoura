@@ -1,22 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>✊ 🖐 ✌</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <!--<link rel="stylesheet" href="styles.css" />-->
+  </head>
 
-<body>
+  <body>
     <h1>Pedra, Papel e Tesoura</h1>
-    <button>✊</button>
-    <button>🖐</button>
-    <button>✌</button>
+    <button onclick="playGame('pedra')">✊</button>
+    <button onclick="playGame('papel')">🖐</button>
+    <button onclick="playGame('tesoura')">✌</button>
+
+    <p class="js-moves"></p>
+    <p class="js-result"></p>
 
     <script>
+      function pickComputerMove() {
+        let computerMove = Math.random();
 
+        if (computerMove >= 0 && computerMove < 1 / 3) {
+          computerMove = "pedra";
+        } else if (computerMove >= 1 / 3 && computerMove < 2 / 3) {
+          computerMove = "papel";
+        } else if (computerMove >= 2 / 3 && computerMove < 1) {
+          computerMove = "tesoura";
+        }
+
+        return computerMove;
+      }
+
+      function playGame(playerMove) {
+        let computerMove = pickComputerMove();
+        result = "";
+        emojis = {
+          pedra: "✊",
+          papel: "🖐",
+          tesoura: "✌",
+        };
+
+        if (playerMove === computerMove) {
+          result = "Empate.";
+        } else if (playerMove === "pedra") {
+          if (computerMove === "papel") {
+            result = "Você perdeu :(";
+          } else if (computerMove === "tesoura") {
+            result = "Você ganhou!";
+          }
+        } else if (playerMove === "papel") {
+          if (computerMove === "tesoura") {
+            result = "Você perdeu :(";
+          } else if (computerMove === "pedra") {
+            result = "Você ganhou!";
+          }
+        } else if (playerMove === "tesoura") {
+          if (computerMove === "pedra") {
+            result = "Você perdeu :(";
+          } else if (computerMove === "papel") {
+            result = "Você ganhou!";
+          }
+        }
+        document.querySelector(
+          ".js-moves"
+        ).innerHTML = `você ${emojis[playerMove]} ${emojis[computerMove]} computador`;
+        document.querySelector(".js-result").innerHTML = result;
+      }
     </script>
-</body>
-
+  </body>
 </html>
