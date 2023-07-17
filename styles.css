@@ -1,0 +1,95 @@
+body {
+  font-family: Arial;
+  background-color: #333;
+  color: #fff;
+  margin: 0;
+  text-align: center;
+}
+
+p {
+  margin: 0;
+}
+
+.unselectable {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.container-flex {
+  display: inline-flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.info-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.move-flex {
+  display: flex;
+  gap: 10px;
+}
+
+.div-button {
+  display: flex;
+  justify-content: end;
+}
+
+.move-button {
+  background-color: transparent;
+  border: 3px solid #fff;
+  font-size: 50px;
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+  cursor: pointer;
+}
+
+.move-button:hover {
+  opacity: 0.8;
+}
+
+.move-button:active {
+  opacity: 0.6;
+}
+
+.reset-button {
+  background-color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-weight: bold;
+  border-radius: 18px;
+  cursor: pointer;
+}
+
+.reset-button:hover {
+  opacity: 0.8;
+}
+
+.reset-button:active {
+  opacity: 0.6;
+}
+
+.score {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.moves {
+  font-size: 20px;
+}
+
+.move-emoji {
+  font-size: 30px;
+}
+
+.result {
+  font-size: 18px;
+}
